@@ -1,4 +1,4 @@
-local Version = "3.3 beta"
+local Version = "3.0"
 
 local Player = game.Players.LocalPlayer
 local PlayerGui = Player.PlayerGui
@@ -781,6 +781,20 @@ Toggle.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 Toggle.TextStrokeTransparency = 0
 Toggle.Visible = false
 
+local Invisible = Instance.new("TextButton")
+Invisible.Name = "Invisible"
+Invisible.Parent = Padge
+Invisible.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+Invisible.Position = UDim2.new(0.523, 0, 0.409, 0)
+Invisible.Size = UDim2.new(0, 95, 0, 45)
+Invisible.Font = Enum.Font.FredokaOne
+Invisible.Text = "Invisible"
+Invisible.TextColor3 = Color3.fromRGB(255, 255, 255)
+Invisible.TextScaled = true
+Invisible.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Invisible.TextStrokeTransparency = 0
+Invisible.Visible = false
+
 local TeleportToPlayer1 = Instance.new("TextLabel")
 TeleportToPlayer1.Position = UDim2.new(0.218, 0, 0.249, 0)
 TeleportToPlayer1.Size = UDim2.new(0, 291, 0, 56)
@@ -1191,21 +1205,7 @@ Credits.Font = Enum.Font.FredokaOne
 Credits.Name = "Credits"
 Credits.Parent = Background
 
-local InvisibleButton = Instance.new("TextButton")
-InvisibleButton.Name = "Invisible"
-InvisibleButton.Parent = Padge
-InvisibleButton.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
-InvisibleButton.Position = UDim2.new(0.523, 0, 0.409, 0)
-InvisibleButton.Size = UDim2.new(0, 95, 0, 45)
-InvisibleButton.Font = Enum.Font.FredokaOne
-InvisibleButton.Text = "Invisible"
-InvisibleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-InvisibleButton.TextScaled = true
-InvisibleButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
-InvisibleButton.TextStrokeTransparency = 0
-InvisibleButton.Visible = false
-
-task.wait(1)
+task.wait(2)
 
 Credits:Destroy()
 LoadingText:Destroy()
@@ -2285,98 +2285,6 @@ FireMap.MouseButton1Click:Connect(function()
 		fireOn = false
 	end
 end)
-
--- invisible toggle script
-
-
--- Gui to Minecraft
--- Version: 9/11
-
--- Instances:
-
-local Frame = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
-local TextButton = InvisibleButton
-
-Frame.Parent = DenkerCheatGui
-Frame.BackgroundColor3 = Color3.fromRGB(196, 40, 28)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.584415555, 0, 0.121844128, 0)
-Frame.Size = UDim2.new(0, 173, 0, 105)
-Frame.Active = true
-Frame.Draggable = true
-Frame.Visible = false
-
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(13, 105, 172)
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Size = UDim2.new(0, 173, 0, 30)
-TextLabel.Font = Enum.Font.SourceSansBold
-TextLabel.Text = "Invisible toggle"
-TextLabel.TextColor3 = Color3.fromRGB(245, 205, 48)
-TextLabel.TextSize = 18.000
-
--- Scripts:
-
-local function GNXDSUT_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
-
-	local TextButton = script.Parent
-	local invis_on = false
-
-	local function makeTransparent(character)
-		for _, part in ipairs(character:GetDescendants()) do
-			if part:IsA("BasePart") then
-				part.LocalTransparencyModifier = invis_on and 0.5 or 0
-			end
-		end
-	end
-
-	local function toggleInvisibility()
-		invis_on = not invis_on
-		local player = game.Players.LocalPlayer
-		local character = player.Character or player.CharacterAdded:Wait()
-
-		if invis_on then
-			local savedpos = character.HumanoidRootPart.CFrame
-			wait()
-			character:MoveTo(Vector3.new(-25.95, 84, 3537.55))
-			wait(0.15)
-
-			local Seat = Instance.new('Seat', game.Workspace)
-			Seat.Anchored = false
-			Seat.CanCollide = false
-			Seat.Name = 'invischair'
-			Seat.Transparency = 1
-			Seat.Position = Vector3.new(-25.95, 84, 3537.55)
-
-			local Weld = Instance.new("Weld", Seat)
-			Weld.Part0 = Seat
-			Weld.Part1 = character:FindFirstChild("Torso") or character:FindFirstChild("UpperTorso")
-			wait()
-
-			Seat.CFrame = savedpos
-			TextButton.Text = "ON🛡️"
-		else
-			local invisChair = workspace:FindFirstChild('invischair')
-			if invisChair then
-				invisChair:Destroy()
-			end
-			TextButton.Text = "OFF🛑"
-		end
-
-		makeTransparent(character)
-	end
-
-	TextButton.MouseButton1Click:Connect(toggleInvisibility)
-
-	game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
-		makeTransparent(character)
-	end)
-end
-coroutine.wrap(GNXDSUT_fake_script)()
 
 setting = settings().Network
 local Effect = Instance.new("ColorCorrectionEffect")
