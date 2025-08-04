@@ -1191,44 +1191,7 @@ Credits.Font = Enum.Font.FredokaOne
 Credits.Name = "Credits"
 Credits.Parent = Background
 
-loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
-
-local targetButton
-
-local function checkButton()
-	local screenGui = PlayerGui:FindFirstChild("ScreenGui")
-	if screenGui then
-		local button = screenGui:FindFirstChild("TextButton")
-		if button and button:IsA("TextButton") then
-			local color = button.BackgroundColor3
-			if color == Color3.fromRGB(255, 0, 0) and button.Text == "Invisible" then
-				return button
-			end
-		end
-	end
-	return nil
-end
-
-targetButton = checkButton()
-if targetButton then
-	print("Кнопка уже есть!")
-else
-	local screenGui = PlayerGui:WaitForChild("ScreenGui")
-
-	local button = screenGui:WaitForChild("TextButton")
-
-	while true do
-		if button.BackgroundColor3 == Color3.fromRGB(255, 0, 0) and button.Text == "Invisible" then
-			targetButton = button
-			print("Кнопка появилась и соответствует условиям!")
-			break
-		end
-		wait(0.1)
-	end
-end
-
-local InvisibleButton = targetButton
-
+local InvisibleButton = Instance.new("TextButton")
 InvisibleButton.Name = "Invisible"
 InvisibleButton.Parent = Padge
 InvisibleButton.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
@@ -2323,38 +2286,54 @@ FireMap.MouseButton1Click:Connect(function()
 	end
 end)
 
-setting = settings().Network
-local Effect = Instance.new("ColorCorrectionEffect")
-Effect.Parent = game.Lighting
-Effect.Saturation = -1
-Effect.Brightness = 0
-Effect.Contrast = 0
-toggle = false
+local invis_on = false
 
-Effect.Enabled = false
-function onKeyPress(inputObject, gameProcessedEvent)
-	if inputObject.KeyCode == Enum.KeyCode.E then	
-		if toggle == false then
-			setting.IncomingReplicationLag = 1000
-			Effect.Enabled = true
-			toggle = true
-		else
-			setting.IncomingReplicationLag = 0
-			Effect.Enabled = false
-			toggle = false
+local function makeTransparent(character)
+	for _, part in ipairs(character:GetDescendants()) do
+		if part:IsA("BasePart") then
+			part.LocalTransparencyModifier = invis_on and 0.5 or 0
 		end
-
 	end
 end
 
-game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+local function toggleInvisibility()
+	invis_on = not invis_on
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
 
-run = false
-StopTime.MouseButton1Click:connect(function()
-	run = not run
-	local vim = game:service("VirtualInputManager")
-	vim:SendKeyEvent(true, "E", false, game)
-	wait()
-	local vim = game:service("VirtualInputManager")
-	vim:SendKeyEvent(false, "E", false, game)
+	if invis_on then
+		local savedpos = character.HumanoidRootPart.CFrame
+		wait()
+		character:MoveTo(Vector3.new(-25.95, 84, 3537.55))
+		wait(0.15)
+
+		local Seat = Instance.new('Seat', workspace)
+		Seat.Anchored = false
+		Seat.CanCollide = false
+		Seat.Name = 'invischair'
+		Seat.Transparency = 1
+		Seat.Position = Vector3.new(-25.95, 84, 3537.55)
+
+		local Weld = Instance.new("Weld", Seat)
+		Weld.Part0 = Seat
+		Weld.Part1 = character:FindFirstChild("Torso") or character:FindFirstChild("UpperTorso")
+		wait()
+
+		Seat.CFrame = savedpos
+		InvisibleButton.Text = "Invisible"
+	else
+		local invisChair = workspace:FindFirstChild('invischair')
+		if invisChair then
+			invisChair:Destroy()
+		end
+		InvisibleButton.Text = "Invisible"
+	end
+
+	makeTransparent(character)
+end
+
+InvisibleButton.MouseButton1Click:Connect(toggleInvisibility)
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
+	makeTransparent(character)
 end)
