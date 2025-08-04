@@ -2294,7 +2294,7 @@ end)
 -- Scripts:
 
 local function GNXDSUT_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', Invisible)
+	local script = Instance.new('LocalScript', TextButton)
 
 	local TextButton = script.Parent
 	local invis_on = false
@@ -2386,3 +2386,4 @@ StopTime.MouseButton1Click:connect(function()
 	local vim = game:service("VirtualInputManager")
 	vim:SendKeyEvent(false, "E", false, game)
 end)
+
