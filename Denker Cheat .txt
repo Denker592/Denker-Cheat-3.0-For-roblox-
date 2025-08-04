@@ -1,0 +1,2323 @@
+local Version = "3.0"
+
+local Player = game.Players.LocalPlayer
+local PlayerGui = Player.PlayerGui
+local Lighting = game.Lighting
+
+local Frame = Instance.new("Frame")
+local up = Instance.new("TextButton")
+local down = Instance.new("TextButton")
+local onof = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local plus = Instance.new("TextButton")
+local speed = Instance.new("TextLabel")
+local mine = Instance.new("TextButton")
+local closebutton = Instance.new("TextButton")
+local mini = Instance.new("TextButton")
+local mini2 = Instance.new("TextButton")
+
+up.Visible = false
+down.Visible = false
+onof.Visible = false
+TextLabel.Visible = false
+plus.Visible = false
+speed.Visible = false
+closebutton.Visible = false
+mine.Visible = false
+mini.Visible = false
+mini2.Visible = false
+Frame.BackgroundTransparency = 1
+
+local DenkerCheatGui = Instance.new("ScreenGui")
+DenkerCheatGui.Name = "DenkerCheatGui"
+DenkerCheatGui.ResetOnSpawn = false
+DenkerCheatGui.Parent = PlayerGui
+
+local BlurEffect = Instance.new("BlurEffect")
+BlurEffect.Name = "BlurEffect"
+BlurEffect.Size = 24
+BlurEffect.Parent = Lighting
+
+Frame.Parent = DenkerCheatGui
+Frame.BackgroundColor3 = Color3.fromRGB(163, 255, 137)
+Frame.BorderColor3 = Color3.fromRGB(103, 221, 213)
+Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
+Frame.Size = UDim2.new(0, 190, 0, 57)
+
+up.Name = "up"
+up.Parent = Frame
+up.BackgroundColor3 = Color3.fromRGB(79, 255, 152)
+up.Size = UDim2.new(0, 44, 0, 28)
+up.Font = Enum.Font.SourceSans
+up.Text = "UP"
+up.TextColor3 = Color3.fromRGB(0, 0, 0)
+up.TextSize = 14.000
+
+down.Name = "down"
+down.Parent = Frame
+down.BackgroundColor3 = Color3.fromRGB(215, 255, 121)
+down.Position = UDim2.new(0, 0, 0.491228074, 0)
+down.Size = UDim2.new(0, 44, 0, 28)
+down.Font = Enum.Font.SourceSans
+down.Text = "DOWN"
+down.TextColor3 = Color3.fromRGB(0, 0, 0)
+down.TextSize = 14.000
+
+onof.Name = "onof"
+onof.Parent = Frame
+onof.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+onof.Position = UDim2.new(-0.15, 0, -4.807, 0)
+onof.Size = UDim2.new(0, 95, 0, 45)
+onof.Font = Enum.Font.FredokaOne
+onof.Text = "Fly"
+onof.TextColor3 = Color3.fromRGB(255, 255, 255)
+onof.TextScaled = true
+onof.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+onof.TextStrokeTransparency = 0
+
+Frame.Active = false
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(242, 60, 255)
+TextLabel.Position = UDim2.new(-0.197, 0, -0.842, 0)
+TextLabel.Size = UDim2.new(0, 100, 0, 28)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "FLY GUI V3"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+plus.Name = "plus"
+plus.Parent = Frame
+plus.BackgroundColor3 = Color3.fromRGB(133, 145, 255)
+plus.Position = UDim2.new(0.231578946, 0, 0, 0)
+plus.Size = UDim2.new(0, 45, 0, 28)
+plus.Font = Enum.Font.SourceSans
+plus.Text = "+"
+plus.TextColor3 = Color3.fromRGB(0, 0, 0)
+plus.TextScaled = true
+plus.TextSize = 14.000
+plus.TextWrapped = true
+
+speed.Name = "speed"
+speed.Parent = Frame
+speed.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
+speed.Size = UDim2.new(0, 44, 0, 28)
+speed.Font = Enum.Font.SourceSans
+speed.Text = "1"
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed.TextScaled = true
+speed.TextSize = 14.000
+speed.TextWrapped = true
+
+mine.Name = "mine"
+mine.Parent = Frame
+mine.BackgroundColor3 = Color3.fromRGB(123, 255, 247)
+mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
+mine.Size = UDim2.new(0, 45, 0, 29)
+mine.Font = Enum.Font.SourceSans
+mine.Text = "-"
+mine.TextColor3 = Color3.fromRGB(0, 0, 0)
+mine.TextScaled = true
+mine.TextSize = 14.000
+mine.TextWrapped = true
+
+closebutton.Name = "Close"
+closebutton.Parent = DenkerCheatGui.Frame
+closebutton.BackgroundColor3 = Color3.fromRGB(225, 25, 0)
+closebutton.Font = "SourceSans"
+closebutton.Size = UDim2.new(0, 45, 0, 28)
+closebutton.Text = "X"
+closebutton.TextSize = 30
+closebutton.Position =  UDim2.new(0, 0, -1, 27)
+
+mini.Name = "minimize"
+mini.Parent = DenkerCheatGui.Frame
+mini.BackgroundColor3 = Color3.fromRGB(192, 150, 230)
+mini.Font = "SourceSans"
+mini.Size = UDim2.new(0, 45, 0, 28)
+mini.Text = "-"
+mini.TextSize = 40
+mini.Position = UDim2.new(0, 44, -1, 27)
+
+mini2.Name = "minimize2"
+mini2.Parent = DenkerCheatGui.Frame
+mini2.BackgroundColor3 = Color3.fromRGB(192, 150, 230)
+mini2.Font = "SourceSans"
+mini2.Size = UDim2.new(0, 45, 0, 28)
+mini2.Text = "+"
+mini2.TextSize = 40
+mini2.Position = UDim2.new(0, 44, -1, 57)
+mini2.Visible = false
+
+speeds = 1
+
+local speaker = game:GetService("Players").LocalPlayer
+
+local chr = game.Players.LocalPlayer.Character
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+nowe = false
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "Denker Cheat ".. Version;
+	Text = "Credits : 4567lenta";
+	Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
+Duration = 5;
+
+Frame.Active = true
+Frame.Draggable = true
+
+onof.MouseButton1Down:connect(function()
+
+	if nowe == true then
+		nowe = false
+
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
+		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+	else 
+		nowe = true
+
+
+
+		for i = 1, speeds do
+			spawn(function()
+
+				local hb = game:GetService("RunService").Heartbeat	
+
+
+				tpwalking = true
+				local chr = game.Players.LocalPlayer.Character
+				local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+				while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+					if hum.MoveDirection.Magnitude > 0 then
+						chr:TranslateBy(hum.MoveDirection)
+					end
+				end
+
+			end)
+		end
+		game.Players.LocalPlayer.Character.Animate.Disabled = true
+		local Char = game.Players.LocalPlayer.Character
+		local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+
+		for i,v in next, Hum:GetPlayingAnimationTracks() do
+			v:AdjustSpeed(0)
+		end
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
+		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
+		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+	end
+
+
+
+
+	if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+
+
+
+		local plr = game.Players.LocalPlayer
+		local torso = plr.Character.Torso
+		local flying = true
+		local deb = true
+		local ctrl = {f = 0, b = 0, l = 0, r = 0}
+		local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		local maxspeed = 50
+		local speed = 0
+
+
+		local bg = Instance.new("BodyGyro", torso)
+		bg.P = 9e4
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.cframe = torso.CFrame
+		local bv = Instance.new("BodyVelocity", torso)
+		bv.velocity = Vector3.new(0,0.1,0)
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		if nowe == true then
+			plr.Character.Humanoid.PlatformStand = true
+		end
+		while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+			game:GetService("RunService").RenderStepped:Wait()
+
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+				speed = speed+.5+(speed/maxspeed)
+				if speed > maxspeed then
+					speed = maxspeed
+				end
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+				speed = speed-1
+				if speed < 0 then
+					speed = 0
+				end
+			end
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+			else
+				bv.velocity = Vector3.new(0,0,0)
+			end
+			--	game.Players.LocalPlayer.Character.Animate.Disabled = true
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+		end
+		ctrl = {f = 0, b = 0, l = 0, r = 0}
+		lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		speed = 0
+		bg:Destroy()
+		bv:Destroy()
+		plr.Character.Humanoid.PlatformStand = false
+		game.Players.LocalPlayer.Character.Animate.Disabled = false
+		tpwalking = false
+
+
+
+
+	else
+		local plr = game.Players.LocalPlayer
+		local UpperTorso = plr.Character.UpperTorso
+		local flying = true
+		local deb = true
+		local ctrl = {f = 0, b = 0, l = 0, r = 0}
+		local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		local maxspeed = 50
+		local speed = 0
+
+
+		local bg = Instance.new("BodyGyro", UpperTorso)
+		bg.P = 9e4
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.cframe = UpperTorso.CFrame
+		local bv = Instance.new("BodyVelocity", UpperTorso)
+		bv.velocity = Vector3.new(0,0.1,0)
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		if nowe == true then
+			plr.Character.Humanoid.PlatformStand = true
+		end
+		while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+			wait()
+
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+				speed = speed+.5+(speed/maxspeed)
+				if speed > maxspeed then
+					speed = maxspeed
+				end
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+				speed = speed-1
+				if speed < 0 then
+					speed = 0
+				end
+			end
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+			else
+				bv.velocity = Vector3.new(0,0,0)
+			end
+
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+		end
+		ctrl = {f = 0, b = 0, l = 0, r = 0}
+		lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		speed = 0
+		bg:Destroy()
+		bv:Destroy()
+		plr.Character.Humanoid.PlatformStand = false
+		game.Players.LocalPlayer.Character.Animate.Disabled = false
+		tpwalking = false
+
+
+
+	end
+
+
+
+
+
+end)
+
+local tis
+
+up.MouseButton1Down:connect(function()
+	tis = up.MouseEnter:connect(function()
+		while tis do
+			wait()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,1,0)
+		end
+	end)
+end)
+
+up.MouseLeave:connect(function()
+	if tis then
+		tis:Disconnect()
+		tis = nil
+	end
+end)
+
+local dis
+
+down.MouseButton1Down:connect(function()
+	dis = down.MouseEnter:connect(function()
+		while dis do
+			wait()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-1,0)
+		end
+	end)
+end)
+
+down.MouseLeave:connect(function()
+	if dis then
+		dis:Disconnect()
+		dis = nil
+	end
+end)
+
+
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
+	wait(0.7)
+	game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+
+end)
+
+
+plus.MouseButton1Down:connect(function()
+	speeds = speeds + 1
+	speed.Text = speeds
+	if nowe == true then
+
+
+		tpwalking = false
+		for i = 1, speeds do
+			spawn(function()
+
+				local hb = game:GetService("RunService").Heartbeat	
+
+
+				tpwalking = true
+				local chr = game.Players.LocalPlayer.Character
+				local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+				while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+					if hum.MoveDirection.Magnitude > 0 then
+						chr:TranslateBy(hum.MoveDirection)
+					end
+				end
+
+			end)
+		end
+	end
+end)
+mine.MouseButton1Down:connect(function()
+	if speeds == 1 then
+		speed.Text = 'cannot be less than 1'
+		wait(1)
+		speed.Text = speeds
+	else
+		speeds = speeds - 1
+		speed.Text = speeds
+		if nowe == true then
+			tpwalking = false
+			for i = 1, speeds do
+				spawn(function()
+
+					local hb = game:GetService("RunService").Heartbeat	
+
+
+					tpwalking = true
+					local chr = game.Players.LocalPlayer.Character
+					local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+					while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+						if hum.MoveDirection.Magnitude > 0 then
+							chr:TranslateBy(hum.MoveDirection)
+						end
+					end
+
+				end)
+			end
+		end
+	end
+end)
+
+closebutton.MouseButton1Click:Connect(function()
+	print("Hello world!")
+end)
+
+mini.MouseButton1Click:Connect(function()
+	up.Visible = false
+	down.Visible = false
+	onof.Visible = false
+	plus.Visible = false
+	speed.Visible = false
+	mine.Visible = false
+	mini.Visible = false
+	mini2.Visible = true
+	DenkerCheatGui.Frame.BackgroundTransparency = 1
+	closebutton.Position =  UDim2.new(0, 0, -1, 57)
+end)
+
+mini2.MouseButton1Click:Connect(function()
+	up.Visible = true
+	down.Visible = true
+	onof.Visible = true
+	plus.Visible = true
+	speed.Visible = true
+	mine.Visible = true
+	mini.Visible = true
+	mini2.Visible = false
+	DenkerCheatGui.Frame.BackgroundTransparency = 0 
+	closebutton.Position =  UDim2.new(0, 0, -1, 27)
+end)
+
+local Background = Instance.new("Frame")
+Background.Position = UDim2.new(0.307, 0, 0.22, 0)
+Background.Size = UDim2.new(0, 515, 0, 362)
+Background.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Background.BackgroundTransparency = 0.1
+Background.Active = true
+Background.Draggable = true
+Background.Name = "Background"
+Background.Parent = DenkerCheatGui
+
+local Padge = Instance.new("ScrollingFrame")
+Padge.Position = UDim2.new(0, 0, 0.244, 0)
+Padge.Size = UDim2.new(0, 521, 0, 273)
+Padge.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Padge.BackgroundTransparency = 1
+Padge.Name = "Padge"
+Padge.ScrollBarImageTransparency = 1
+Padge.Parent = Background
+
+local xrayButton = Instance.new("TextButton")
+xrayButton.Name = "XRay"
+xrayButton.Parent = Background
+xrayButton.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+xrayButton.Position = UDim2.new(0.757, 0, 0.003, 0)
+xrayButton.Size = UDim2.new(0, 95, 0, 45)
+xrayButton.Font = Enum.Font.FredokaOne
+xrayButton.Text = "XRay"
+xrayButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+xrayButton.TextScaled = true
+xrayButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+xrayButton.TextStrokeTransparency = 0
+xrayButton.Visible = false
+
+local DayAndNight = Instance.new("TextButton")
+DayAndNight.Name = "Day and night"
+DayAndNight.Parent = Background
+DayAndNight.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+DayAndNight.Position = UDim2.new(0.757, 0, 0.097, 0)
+DayAndNight.Size = UDim2.new(0, 95, 0, 45)
+DayAndNight.Font = Enum.Font.FredokaOne
+DayAndNight.Text = "Night"
+DayAndNight.TextColor3 = Color3.fromRGB(255, 255, 255)
+DayAndNight.TextScaled = true
+DayAndNight.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+DayAndNight.TextStrokeTransparency = 0
+DayAndNight.Visible = false
+
+local Spectacle = Instance.new("TextButton")
+Spectacle.Name = "Spectacle"
+Spectacle.Parent = Background
+Spectacle.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+Spectacle.Position = UDim2.new(0.287, 0, 0.2, 0)
+Spectacle.Size = UDim2.new(0, 95, 0, 45)
+Spectacle.Font = Enum.Font.FredokaOne
+Spectacle.Text = "Spectacle"
+Spectacle.TextColor3 = Color3.fromRGB(255, 255, 255)
+Spectacle.TextScaled = true
+Spectacle.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Spectacle.TextStrokeTransparency = 0
+Spectacle.Visible = false
+
+local Rejoin = Instance.new("TextButton")
+Rejoin.Name = "Rejoin"
+Rejoin.Parent = Background
+Rejoin.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+Rejoin.Position = UDim2.new(0.044, 0, 0.097, 0)
+Rejoin.Size = UDim2.new(0, 95, 0, 45)
+Rejoin.Font = Enum.Font.FredokaOne
+Rejoin.Text = "Rejoin"
+Rejoin.TextColor3 = Color3.fromRGB(255, 255, 255)
+Rejoin.TextScaled = true
+Rejoin.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Rejoin.TextStrokeTransparency = 0
+Rejoin.Visible = false
+
+local FireMap = Instance.new("TextButton")
+FireMap.Name = "Fire map"
+FireMap.Parent = Padge
+FireMap.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+FireMap.Position = UDim2.new(0.755, 0, 0.305, 0)
+FireMap.Size = UDim2.new(0, 95, 0, 45)
+FireMap.Font = Enum.Font.FredokaOne
+FireMap.Text = "Fire map"
+FireMap.TextColor3 = Color3.fromRGB(255, 255, 255)
+FireMap.TextScaled = true
+FireMap.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+FireMap.TextStrokeTransparency = 0
+FireMap.Visible = false
+
+local FakeLag = Instance.new("TextButton")
+FakeLag.Name = "Fake lag"
+FakeLag.Parent = Padge
+FakeLag.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+FakeLag.Position = UDim2.new(0.285, 0, 0.305, 0)
+FakeLag.Size = UDim2.new(0, 95, 0, 45)
+FakeLag.Font = Enum.Font.FredokaOne
+FakeLag.Text = "Fake lag"
+FakeLag.TextColor3 = Color3.fromRGB(255, 255, 255)
+FakeLag.TextScaled = true
+FakeLag.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+FakeLag.TextStrokeTransparency = 0
+FakeLag.Visible = false
+
+local HideMap = Instance.new("TextButton")
+HideMap.Name = "Hide map"
+HideMap.Parent = Padge
+HideMap.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+HideMap.Position = UDim2.new(0.041, 0, 0.41, 0)
+HideMap.Size = UDim2.new(0, 95, 0, 45)
+HideMap.Font = Enum.Font.FredokaOne
+HideMap.Text = "Hide map"
+HideMap.TextColor3 = Color3.fromRGB(255, 255, 255)
+HideMap.TextScaled = true
+HideMap.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+HideMap.TextStrokeTransparency = 0
+HideMap.Visible = false
+
+local ShiftLock = Instance.new("TextButton")
+ShiftLock.Name = "Shift lock"
+ShiftLock.Parent = Padge
+ShiftLock.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+ShiftLock.Position = UDim2.new(0.523, 0, 0.305, 0)
+ShiftLock.Size = UDim2.new(0, 95, 0, 45)
+ShiftLock.Font = Enum.Font.FredokaOne
+ShiftLock.Text = "Shift lock"
+ShiftLock.TextColor3 = Color3.fromRGB(255, 255, 255)
+ShiftLock.TextScaled = true
+ShiftLock.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+ShiftLock.TextStrokeTransparency = 0
+ShiftLock.Visible = false
+
+local SpinHack = Instance.new("TextButton")
+SpinHack.Name = "Spin hack"
+SpinHack.Parent = Padge
+SpinHack.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+SpinHack.Position = UDim2.new(0.757, 0, 0.2, 0)
+SpinHack.Size = UDim2.new(0, 95, 0, 45)
+SpinHack.Font = Enum.Font.FredokaOne
+SpinHack.Text = "Spin hack"
+SpinHack.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpinHack.TextScaled = true
+SpinHack.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpinHack.TextStrokeTransparency = 0
+SpinHack.Visible = false
+
+local SpeedHack = Instance.new("TextButton")
+SpeedHack.Name = "Speed hack"
+SpeedHack.Parent = Background
+SpeedHack.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+SpeedHack.Position = UDim2.new(0.287, 0, 0.097, 0)
+SpeedHack.Size = UDim2.new(0, 95, 0, 45)
+SpeedHack.Font = Enum.Font.FredokaOne
+SpeedHack.Text = "Speed hack"
+SpeedHack.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedHack.TextScaled = true
+SpeedHack.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpeedHack.TextStrokeTransparency = 0
+SpeedHack.Visible = false
+
+local JumpPowerHack = Instance.new("TextButton")
+JumpPowerHack.Name = "JumpPower hack"
+JumpPowerHack.Parent = Background
+JumpPowerHack.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+JumpPowerHack.Position = UDim2.new(0.524, 0, 0.097, 0)
+JumpPowerHack.Size = UDim2.new(0, 95, 0, 45)
+JumpPowerHack.Font = Enum.Font.FredokaOne
+JumpPowerHack.Text = "JumpPower hack"
+JumpPowerHack.TextColor3 = Color3.fromRGB(255, 255, 255)
+JumpPowerHack.TextScaled = true
+JumpPowerHack.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+JumpPowerHack.TextStrokeTransparency = 0
+JumpPowerHack.Visible = false
+
+local Colse = Instance.new("TextButton")
+Colse.Name = "Colse"
+Colse.Parent = Background
+Colse.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Colse.Position = UDim2.new(0.926, 0, -0.003, 0)
+Colse.Size = UDim2.new(0, 38, 0, 38)
+Colse.Font = Enum.Font.FredokaOne
+Colse.Text = "X"
+Colse.TextColor3 = Color3.fromRGB(255, 255, 255)
+Colse.TextScaled = true
+Colse.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Colse.TextStrokeTransparency = 0
+Colse.Visible = false
+
+local CheatIcon = Instance.new("ImageButton")
+CheatIcon.Visible = false
+CheatIcon.Name = "Cheat icon"
+CheatIcon.Image = "rbxassetid://122837540557287"
+CheatIcon.Position = UDim2.new(0.482, 0, 0.45, 0)
+CheatIcon.Size = UDim2.new(0, 51, 0, 51)
+CheatIcon.Active = true
+CheatIcon.Draggable = true
+CheatIcon.Parent = DenkerCheatGui
+
+local __ = Instance.new("TextButton")
+__.Name = "__"
+__.Parent = Background
+__.BackgroundColor3 = Color3.fromRGB(117, 117, 117)
+__.BackgroundTransparency = 0.5
+__.Position = UDim2.new(0.852, 0, -0, 0)
+__.Size = UDim2.new(0, 38, 0, 38)
+__.Font = Enum.Font.FredokaOne
+__.Text = "-"
+__.TextColor3 = Color3.fromRGB(255, 255, 255)
+__.TextScaled = true
+__.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+__.TextStrokeTransparency = 0
+__.Visible = false
+
+local Reset = Instance.new("TextButton")
+Reset.Name = "Reset"
+Reset.Parent = Background
+Reset.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+Reset.Position = UDim2.new(0.524, 0,0.003, 0)
+Reset.Size = UDim2.new(0, 95, 0, 45)
+Reset.Font = Enum.Font.FredokaOne
+Reset.Text = "Reset"
+Reset.TextColor3 = Color3.fromRGB(255, 255, 255)
+Reset.TextScaled = true
+Reset.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Reset.TextStrokeTransparency = 0
+Reset.Visible = false
+
+local GiveAllTools = Instance.new("TextButton")
+GiveAllTools.Name = "Give all tools"
+GiveAllTools.Parent = Padge
+GiveAllTools.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+GiveAllTools.Position = UDim2.new(0.285, 0, 0.409, 0)
+GiveAllTools.Size = UDim2.new(0, 95, 0, 45)
+GiveAllTools.Font = Enum.Font.FredokaOne
+GiveAllTools.Text = "Give all tools"
+GiveAllTools.TextColor3 = Color3.fromRGB(255, 255, 255)
+GiveAllTools.TextScaled = true
+GiveAllTools.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+GiveAllTools.TextStrokeTransparency = 0
+GiveAllTools.Visible = false
+
+local Grab = Instance.new("TextButton")
+Grab.Name = "Grab"
+Grab.Parent = Background
+Grab.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+Grab.Position = UDim2.new(0.524, 0, 0.2, 0)
+Grab.Size = UDim2.new(0, 95, 0, 45)
+Grab.Font = Enum.Font.FredokaOne
+Grab.Text = "Grab"
+Grab.TextColor3 = Color3.fromRGB(255, 255, 255)
+Grab.TextScaled = true
+Grab.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Grab.TextStrokeTransparency = 0
+Grab.Visible = false
+
+local StopTime = Instance.new("TextButton")
+StopTime.Name = "Stop time"
+StopTime.Parent = Padge
+StopTime.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+StopTime.Position = UDim2.new(0.044, 0, 0.2, 0)
+StopTime.Size = UDim2.new(0, 95, 0, 45)
+StopTime.Font = Enum.Font.FredokaOne
+StopTime.Text = "Stop time"
+StopTime.TextColor3 = Color3.fromRGB(255, 255, 255)
+StopTime.TextScaled = true
+StopTime.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+StopTime.TextStrokeTransparency = 0
+StopTime.Visible = false
+
+local Toggle = Instance.new("TextButton")
+Toggle.Name = "Noclip"
+Toggle.Parent = Padge
+Toggle.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+Toggle.Position = UDim2.new(0.043, 0, 0.305, 0)
+Toggle.Size = UDim2.new(0, 95, 0, 45)
+Toggle.Font = Enum.Font.FredokaOne
+Toggle.Text = "Noclip"
+Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+Toggle.TextScaled = true
+Toggle.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.TextStrokeTransparency = 0
+Toggle.Visible = false
+
+local Invisible = Instance.new("TextButton")
+Invisible.Name = "Invisible"
+Invisible.Parent = Padge
+Invisible.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+Invisible.Position = UDim2.new(0.523, 0, 0.409, 0)
+Invisible.Size = UDim2.new(0, 95, 0, 45)
+Invisible.Font = Enum.Font.FredokaOne
+Invisible.Text = "Invisible"
+Invisible.TextColor3 = Color3.fromRGB(255, 255, 255)
+Invisible.TextScaled = true
+Invisible.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Invisible.TextStrokeTransparency = 0
+Invisible.Visible = false
+
+local TeleportToPlayer1 = Instance.new("TextLabel")
+TeleportToPlayer1.Position = UDim2.new(0.218, 0, 0.249, 0)
+TeleportToPlayer1.Size = UDim2.new(0, 291, 0, 56)
+TeleportToPlayer1.BackgroundTransparency = 1
+TeleportToPlayer1.Text = "Enter name player"
+TeleportToPlayer1.TextScaled = true
+TeleportToPlayer1.TextColor3 = Color3.fromRGB(255, 255, 255)
+TeleportToPlayer1.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TeleportToPlayer1.TextStrokeTransparency = 0
+TeleportToPlayer1.Font = Enum.Font.FredokaOne
+TeleportToPlayer1.Name = "Teleport to player1"
+TeleportToPlayer1.Parent = Background
+TeleportToPlayer1.Visible = false
+
+local SpinHack1 = Instance.new("TextLabel")
+SpinHack1.Position = UDim2.new(0.218, 0, 0.249, 0)
+SpinHack1.Size = UDim2.new(0, 291, 0, 56)
+SpinHack1.BackgroundTransparency = 1
+SpinHack1.Text = "Enter speed spin number"
+SpinHack1.TextScaled = true
+SpinHack1.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpinHack1.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpinHack1.TextStrokeTransparency = 0
+SpinHack1.Font = Enum.Font.FredokaOne
+SpinHack1.Name = "Spin hack1"
+SpinHack1.Parent = Background
+SpinHack1.Visible = false
+
+local SpeedHack1 = Instance.new("TextLabel")
+SpeedHack1.Position = UDim2.new(0.218, 0, 0.249, 0)
+SpeedHack1.Size = UDim2.new(0, 291, 0, 56)
+SpeedHack1.BackgroundTransparency = 1
+SpeedHack1.Text = "Enter speed number"
+SpeedHack1.TextScaled = true
+SpeedHack1.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedHack1.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpeedHack1.TextStrokeTransparency = 0
+SpeedHack1.Font = Enum.Font.FredokaOne
+SpeedHack1.Name = "Speed hack1"
+SpeedHack1.Parent = Background
+SpeedHack1.Visible = false
+
+local SpeedHack2 = Instance.new("TextBox")
+SpeedHack2.Position = UDim2.new(0.214, 0, 0.428, 0)
+SpeedHack2.Size = UDim2.new(0, 290, 0, 62)
+SpeedHack2.Text = ""
+SpeedHack2.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+SpeedHack2.BackgroundTransparency = 0.3
+SpeedHack2.Font = Enum.Font.FredokaOne
+SpeedHack2.TextScaled = true
+SpeedHack2.PlaceholderText = "Speed"
+SpeedHack2.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpeedHack2.TextStrokeTransparency = 0
+SpeedHack2.Visible = false
+SpeedHack2.Parent = Background
+SpeedHack2.Name = "Speed hack2"
+SpeedHack2.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local SpinHack2 = Instance.new("TextBox")
+SpinHack2.Position = UDim2.new(0.214, 0, 0.428, 0)
+SpinHack2.Size = UDim2.new(0, 290, 0, 62)
+SpinHack2.Text = ""
+SpinHack2.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+SpinHack2.BackgroundTransparency = 0.3
+SpinHack2.Font = Enum.Font.FredokaOne
+SpinHack2.TextScaled = true
+SpinHack2.PlaceholderText = "Spin"
+SpinHack2.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpinHack2.TextStrokeTransparency = 0
+SpinHack2.Visible = false
+SpinHack2.Parent = Background
+SpinHack2.Name = "Spin hack2"
+SpinHack2.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local SpeedHack3 = Instance.new("TextButton")
+SpeedHack3.Position = UDim2.new(0.301, 0, 0.641, 0)
+SpeedHack3.Size = UDim2.new(0, 200, 0, 50)
+SpeedHack3.Text = "Set speed"
+SpeedHack3.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+SpeedHack3.Font = Enum.Font.FredokaOne
+SpeedHack3.TextScaled = true
+SpeedHack3.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpeedHack3.TextStrokeTransparency = 0
+SpeedHack3.Visible = false
+SpeedHack3.Parent = Background
+SpeedHack3.Name = "Speed hack3"
+SpeedHack3.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local SpinHack3 = Instance.new("TextButton")
+SpinHack3.Position = UDim2.new(0.301, 0, 0.641, 0)
+SpinHack3.Size = UDim2.new(0, 200, 0, 50)
+SpinHack3.Text = "Spin"
+SpinHack3.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+SpinHack3.Font = Enum.Font.FredokaOne
+SpinHack3.TextScaled = true
+SpinHack3.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpinHack3.TextStrokeTransparency = 0
+SpinHack3.Visible = false
+SpinHack3.Parent = Background
+SpinHack3.Name = "Spin hack3"
+SpinHack3.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local SpeedHack4 = Instance.new("TextButton")
+SpeedHack4.Position = UDim2.new(0.375, 0, 0.815, 0)
+SpeedHack4.Size = UDim2.new(0, 123, 0, 36)
+SpeedHack4.Text = "Back"
+SpeedHack4.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+SpeedHack4.Font = Enum.Font.FredokaOne
+SpeedHack4.TextScaled = true
+SpeedHack4.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpeedHack4.TextStrokeTransparency = 0
+SpeedHack4.Visible = false
+SpeedHack4.Parent = Background
+SpeedHack4.Name = "Speed hack4"
+SpeedHack4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local SpinHack4 = Instance.new("TextButton")
+SpinHack4.Position = UDim2.new(0.375, 0, 0.815, 0)
+SpinHack4.Size = UDim2.new(0, 123, 0, 36)
+SpinHack4.Text = "Back"
+SpinHack4.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+SpinHack4.Font = Enum.Font.FredokaOne
+SpinHack4.TextScaled = true
+SpinHack4.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpinHack4.TextStrokeTransparency = 0
+SpinHack4.Visible = false
+SpinHack4.Parent = Background
+SpinHack4.Name = "Speed hack4"
+SpinHack4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local TeleportToPlayer2 = Instance.new("TextBox")
+TeleportToPlayer2.Position = UDim2.new(0.214, 0, 0.428, 0)
+TeleportToPlayer2.Size = UDim2.new(0, 290, 0, 62)
+TeleportToPlayer2.Text = ""
+TeleportToPlayer2.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+TeleportToPlayer2.BackgroundTransparency = 0.3
+TeleportToPlayer2.Font = Enum.Font.FredokaOne
+TeleportToPlayer2.TextScaled = true
+TeleportToPlayer2.PlaceholderText = "Player name"
+TeleportToPlayer2.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TeleportToPlayer2.TextStrokeTransparency = 0
+TeleportToPlayer2.Visible = false
+TeleportToPlayer2.Parent = Background
+TeleportToPlayer2.Name = "Teleport to player2"
+TeleportToPlayer2.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local Grab2 = Instance.new("TextBox")
+Grab2.Position = UDim2.new(0.214, 0, 0.428, 0)
+Grab2.Size = UDim2.new(0, 290, 0, 62)
+Grab2.Text = ""
+Grab2.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+Grab2.BackgroundTransparency = 0.3
+Grab2.Font = Enum.Font.FredokaOne
+Grab2.TextScaled = true
+Grab2.PlaceholderText = "Player name"
+Grab2.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Grab2.TextStrokeTransparency = 0
+Grab2.Visible = false
+Grab2.Parent = Background
+Grab2.Name = "Grab2"
+Grab2.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local TeleportToPlayer3 = Instance.new("TextButton")
+TeleportToPlayer3.Position = UDim2.new(0.301, 0, 0.641, 0)
+TeleportToPlayer3.Size = UDim2.new(0, 200, 0, 50)
+TeleportToPlayer3.Text = "Teleport"
+TeleportToPlayer3.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+TeleportToPlayer3.Font = Enum.Font.FredokaOne
+TeleportToPlayer3.TextScaled = true
+TeleportToPlayer3.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TeleportToPlayer3.TextStrokeTransparency = 0
+TeleportToPlayer3.Visible = false
+TeleportToPlayer3.Parent = Background
+TeleportToPlayer3.Name = "Teleport to player3"
+TeleportToPlayer3.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local Grab3 = Instance.new("TextButton")
+Grab3.Position = UDim2.new(0.301, 0, 0.641, 0)
+Grab3.Size = UDim2.new(0, 200, 0, 50)
+Grab3.Text = "Teleport"
+Grab3.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+Grab3.Font = Enum.Font.FredokaOne
+Grab3.TextScaled = true
+Grab3.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Grab3.TextStrokeTransparency = 0
+Grab3.Visible = false
+Grab3.Parent = Background
+Grab3.Name = "Grab3"
+Grab3.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local TeleportToPlayer4 = Instance.new("TextButton")
+TeleportToPlayer4.Position = UDim2.new(0.375, 0, 0.815, 0)
+TeleportToPlayer4.Size = UDim2.new(0, 123, 0, 36)
+TeleportToPlayer4.Text = "Back"
+TeleportToPlayer4.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+TeleportToPlayer4.Font = Enum.Font.FredokaOne
+TeleportToPlayer4.TextScaled = true
+TeleportToPlayer4.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TeleportToPlayer4.TextStrokeTransparency = 0
+TeleportToPlayer4.Visible = false
+TeleportToPlayer4.Parent = Background
+TeleportToPlayer4.Name = "Teleport to player4"
+TeleportToPlayer4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local JumpPowerHack1 = Instance.new("TextLabel")
+JumpPowerHack1.Position = UDim2.new(0.218, 0, 0.249, 0)
+JumpPowerHack1.Size = UDim2.new(0, 291, 0, 56)
+JumpPowerHack1.BackgroundTransparency = 1
+JumpPowerHack1.Text = "Enter JumpPower number"
+JumpPowerHack1.TextScaled = true
+JumpPowerHack1.TextColor3 = Color3.fromRGB(255, 255, 255)
+JumpPowerHack1.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+JumpPowerHack1.TextStrokeTransparency = 0
+JumpPowerHack1.Font = Enum.Font.FredokaOne
+JumpPowerHack1.Name = "JumpPower hack1"
+JumpPowerHack1.Parent = Background
+JumpPowerHack1.Visible = false
+
+local Spectacle1 = Instance.new("TextLabel")
+Spectacle1.Position = UDim2.new(0.218, 0, 0.249, 0)
+Spectacle1.Size = UDim2.new(0, 291, 0, 56)
+Spectacle1.BackgroundTransparency = 1
+Spectacle1.Text = "Enter player name"
+Spectacle1.TextScaled = true
+Spectacle1.TextColor3 = Color3.fromRGB(255, 255, 255)
+Spectacle1.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Spectacle1.TextStrokeTransparency = 0
+Spectacle1.Font = Enum.Font.FredokaOne
+Spectacle1.Name = "Spectacle1"
+Spectacle1.Parent = Background
+Spectacle1.Visible = false
+
+local Spectacle2 = Instance.new("TextBox")
+Spectacle2.Position = UDim2.new(0.214, 0, 0.428, 0)
+Spectacle2.Size = UDim2.new(0, 290, 0, 62)
+Spectacle2.Text = ""
+Spectacle2.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+Spectacle2.BackgroundTransparency = 0.3
+Spectacle2.Font = Enum.Font.FredokaOne
+Spectacle2.TextScaled = true
+Spectacle2.PlaceholderText = "Player name"
+Spectacle2.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Spectacle2.TextStrokeTransparency = 0
+Spectacle2.Visible = false
+Spectacle2.Parent = Background
+Spectacle2.Name = "Spectacle2"
+Spectacle2.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local Spectacle3 = Instance.new("TextButton")
+Spectacle3.Position = UDim2.new(0.301, 0, 0.641, 0)
+Spectacle3.Size = UDim2.new(0, 200, 0, 50)
+Spectacle3.Text = "View"
+Spectacle3.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+Spectacle3.Font = Enum.Font.FredokaOne
+Spectacle3.TextScaled = true
+Spectacle3.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Spectacle3.TextStrokeTransparency = 0
+Spectacle3.Visible = false
+Spectacle3.Parent = Background
+Spectacle3.Name = "Spectacle3"
+Spectacle3.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local JumpPowerHack2 = Instance.new("TextBox")
+JumpPowerHack2.Position = UDim2.new(0.214, 0, 0.428, 0)
+JumpPowerHack2.Size = UDim2.new(0, 290, 0, 62)
+JumpPowerHack2.Text = ""
+JumpPowerHack2.BackgroundColor3 = Color3.fromRGB(79, 79, 79)
+JumpPowerHack2.BackgroundTransparency = 0.3
+JumpPowerHack2.Font = Enum.Font.FredokaOne
+JumpPowerHack2.TextScaled = true
+JumpPowerHack2.PlaceholderText = "JumpPower"
+JumpPowerHack2.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+JumpPowerHack2.TextStrokeTransparency = 0
+JumpPowerHack2.Visible = false
+JumpPowerHack2.Parent = Background
+JumpPowerHack2.Name = "JumpPower hack2"
+JumpPowerHack2.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local JumpPowerHack3 = Instance.new("TextButton")
+JumpPowerHack3.Position = UDim2.new(0.301, 0, 0.641, 0)
+JumpPowerHack3.Size = UDim2.new(0, 200, 0, 50)
+JumpPowerHack3.Text = "Set JumpPower"
+JumpPowerHack3.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+JumpPowerHack3.Font = Enum.Font.FredokaOne
+JumpPowerHack3.TextScaled = true
+JumpPowerHack3.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+JumpPowerHack3.TextStrokeTransparency = 0
+JumpPowerHack3.Visible = false
+JumpPowerHack3.Parent = Background
+JumpPowerHack3.Name = "JumpPower hack3"
+JumpPowerHack3.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local JumpPowerHack4 = Instance.new("TextButton")
+JumpPowerHack4.Position = UDim2.new(0.375, 0, 0.815, 0)
+JumpPowerHack4.Size = UDim2.new(0, 123, 0, 36)
+JumpPowerHack4.Text = "Back"
+JumpPowerHack4.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+JumpPowerHack4.Font = Enum.Font.FredokaOne
+JumpPowerHack4.TextScaled = true
+JumpPowerHack4.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+JumpPowerHack4.TextStrokeTransparency = 0
+JumpPowerHack4.Visible = false
+JumpPowerHack4.Parent = Background
+JumpPowerHack4.Name = "JumpPower hack4"
+JumpPowerHack4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local Spectacle4 = Instance.new("TextButton")
+Spectacle4.Position = UDim2.new(0.375, 0, 0.815, 0)
+Spectacle4.Size = UDim2.new(0, 123, 0, 36)
+Spectacle4.Text = "Back"
+Spectacle4.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+Spectacle4.Font = Enum.Font.FredokaOne
+Spectacle4.TextScaled = true
+Spectacle4.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Spectacle4.TextStrokeTransparency = 0
+Spectacle4.Visible = false
+Spectacle4.Parent = Background
+Spectacle4.Name = "Spectacle4"
+Spectacle4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local Grab4 = Instance.new("TextButton")
+Grab4.Position = UDim2.new(0.375, 0, 0.815, 0)
+Grab4.Size = UDim2.new(0, 123, 0, 36)
+Grab4.Text = "Back"
+Grab4.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+Grab4.Font = Enum.Font.FredokaOne
+Grab4.TextScaled = true
+Grab4.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Grab4.TextStrokeTransparency = 0
+Grab4.Visible = false
+Grab4.Parent = Background
+Grab4.Name = "Grab4"
+Grab4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local SpeedHack4 = Instance.new("TextButton")
+SpeedHack4.Position = UDim2.new(0.375, 0, 0.815, 0)
+SpeedHack4.Size = UDim2.new(0, 123, 0, 36)
+SpeedHack4.Text = "Back"
+SpeedHack4.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+SpeedHack4.Font = Enum.Font.FredokaOne
+SpeedHack4.TextScaled = true
+SpeedHack4.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+SpeedHack4.TextStrokeTransparency = 0
+SpeedHack4.Visible = false
+SpeedHack4.Parent = Background
+SpeedHack4.Name = "Speed hack4"
+SpeedHack4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Frame.Parent = Background
+Frame.Active = false
+
+local UICornerBackground = Instance.new("UICorner")
+UICornerBackground.CornerRadius = UDim.new(0, 20)
+UICornerBackground.Name = "UICornerBackground"
+UICornerBackground.Parent = Background
+
+local UICornerFly = Instance.new("UICorner")
+UICornerFly.CornerRadius = UDim.new(0, 13)
+UICornerFly.Name = "UICornerFly"
+UICornerFly.Parent = onof
+
+local UICornerDayAndNight = Instance.new("UICorner")
+UICornerDayAndNight.CornerRadius = UDim.new(0, 13)
+UICornerDayAndNight.Name = "UICornerDayAndNight"
+UICornerDayAndNightarent = DayAndNight
+
+local UICornerSpectacle = Instance.new("UICorner")
+UICornerSpectacle.CornerRadius = UDim.new(0, 13)
+UICornerSpectacle.Name = "UICornerSpectacle"
+UICornerSpectacle.Parent = Spectacle
+
+local NameCheat = Instance.new("TextLabel")
+NameCheat.Position = UDim2.new(0.138, 0, 0.017, 0)
+NameCheat.Size = UDim2.new(0, 373, 0, 84)
+NameCheat.BackgroundTransparency = 1
+NameCheat.Text = "Denker Cheat ".. Version
+NameCheat.TextScaled = true
+NameCheat.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameCheat.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+NameCheat.TextStrokeTransparency = 0
+NameCheat.Font = Enum.Font.FredokaOne
+NameCheat.Name = "NameCheat"
+NameCheat.Parent = Background
+
+local LoadingText = Instance.new("TextLabel")
+LoadingText.Position = UDim2.new(0.289, 0, 0.274, 0)
+LoadingText.Size = UDim2.new(0, 215, 0, 39)
+LoadingText.BackgroundTransparency = 1
+LoadingText.Text = "Loading..."
+LoadingText.TextScaled = true
+LoadingText.TextColor3 = Color3.fromRGB(141, 141, 141)
+LoadingText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+LoadingText.TextStrokeTransparency = 0
+LoadingText.Font = Enum.Font.FredokaOne
+LoadingText.Name = "Loading"
+LoadingText.Parent = Background
+
+local Credits = Instance.new("TextLabel")
+Credits.Position = UDim2.new(0.017, 0, 0.912, 0)
+Credits.Size = UDim2.new(0, 163, 0, 25)
+Credits.BackgroundTransparency = 1
+Credits.Text = "Credits : 4567lenta"
+Credits.TextScaled = true
+Credits.TextColor3 = Color3.fromRGB(141, 141, 141)
+Credits.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Credits.TextStrokeTransparency = 0
+Credits.Font = Enum.Font.FredokaOne
+Credits.Name = "Credits"
+Credits.Parent = Background
+
+task.wait(2)
+
+Credits:Destroy()
+LoadingText:Destroy()
+
+onof.Visible = true
+xrayButton.Visible = true
+Reset.Visible = true
+Colse.Visible = true
+Rejoin.Visible = true
+SpeedHack.Visible = true
+JumpPowerHack.Visible = true
+__.Visible = true
+DayAndNight.Visible = true
+StopTime.Visible = true
+Spectacle.Visible = true
+Grab.Visible = true
+SpinHack.Visible = true
+Toggle.Visible = true
+FakeLag.Visible = true
+ShiftLock.Visible = true
+HideMap.Visible = true
+GiveAllTools.Visible = true
+FireMap.Visible = true
+
+local TeleportToPlayer = Instance.new("TextButton")
+TeleportToPlayer.Name = "Teleport to player"
+TeleportToPlayer.Parent = Background
+TeleportToPlayer.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+TeleportToPlayer.Position = UDim2.new(0.286, 0, 0.003, 0)
+TeleportToPlayer.Size = UDim2.new(0, 95, 0, 45)
+TeleportToPlayer.Font = Enum.Font.FredokaOne
+TeleportToPlayer.Text = "Teleport to player"
+TeleportToPlayer.TextColor3 = Color3.fromRGB(255, 255, 255)
+TeleportToPlayer.TextScaled = true
+TeleportToPlayer.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TeleportToPlayer.TextStrokeTransparency = 0
+
+local UICornerTeleportToPlayer = Instance.new("UICorner")
+UICornerTeleportToPlayer.CornerRadius = UDim.new(0, 13)
+UICornerTeleportToPlayer.Name = "UICornerTeleportToPlayer"
+UICornerTeleportToPlayer.Parent = TeleportToPlayer
+
+local UICornerXrayButton = Instance.new("UICorner")
+UICornerXrayButton.CornerRadius = UDim.new(0, 13)
+UICornerXrayButton.Name = "UICornerXrayButton"
+UICornerXrayButton.Parent = xrayButton
+
+local UICornerColse = Instance.new("UICorner")
+UICornerColse.CornerRadius = UDim.new(0, 13)
+UICornerColse.Name = "UICornerColse"
+UICornerColse.Parent = Colse
+
+local UICorner__ = Instance.new("UICorner")
+UICorner__.CornerRadius = UDim.new(0, 13)
+UICorner__.Name = "UICorner__"
+UICorner__.Parent = __
+
+local UICornerCheatIcon = Instance.new("UICorner")
+UICornerCheatIcon.CornerRadius = UDim.new(0, 13)
+UICornerCheatIcon.Name = "UICornerCheatIcon"
+UICornerCheatIcon.Parent = CheatIcon
+
+local UICornerReset = Instance.new("UICorner")
+UICornerReset.CornerRadius = UDim.new(0, 13)
+UICornerReset.Name = "UICornerReset"
+UICornerReset.Parent = Reset
+
+local UICornerRejoin = Instance.new("UICorner")
+UICornerRejoin.CornerRadius = UDim.new(0, 13)
+UICornerRejoin.Name = "UICornerRejoin"
+UICornerRejoin.Parent = Rejoin
+
+local UICornerGiveAllTools = Instance.new("UICorner")
+UICornerGiveAllTools.CornerRadius = UDim.new(0, 13)
+UICornerGiveAllTools.Name = "UICornerGiveAllTools"
+UICornerGiveAllTools.Parent = GiveAllTools
+
+local UICornerSpeedHack = Instance.new("UICorner")
+UICornerSpeedHack.CornerRadius = UDim.new(0, 13)
+UICornerSpeedHack.Name = "UICornerSpeedHack"
+UICornerSpeedHack.Parent = SpeedHack
+
+local UICornerJumpPowerHack = Instance.new("UICorner")
+UICornerJumpPowerHack.CornerRadius = UDim.new(0, 13)
+UICornerJumpPowerHack.Name = "UICornerJumpPowerHack"
+UICornerJumpPowerHack.Parent = JumpPowerHack
+
+local UICornerDayAndNight = Instance.new("UICorner")
+UICornerDayAndNight.CornerRadius = UDim.new(0, 13)
+UICornerDayAndNight.Name = "UICornerDayAndNight"
+UICornerDayAndNight.Parent = DayAndNight
+
+local UICornerSpinHack = Instance.new("UICorner")
+UICornerSpinHack.CornerRadius = UDim.new(0, 13)
+UICornerSpinHack.Name = "UICornerSpinHack"
+UICornerSpinHack.Parent = SpinHack
+
+local UICornerGrab = Instance.new("UICorner")
+UICornerGrab.CornerRadius = UDim.new(0, 13)
+UICornerGrab.Name = "UICornerGrab"
+UICornerGrab.Parent = Grab
+
+local UICornerShiftLock = Instance.new("UICorner")
+UICornerShiftLock.CornerRadius = UDim.new(0, 13)
+UICornerShiftLock.Name = "UICornerShiftLock"
+UICornerShiftLock.Parent = ShiftLock
+
+local UICornerNoclip = Instance.new("UICorner")
+UICornerNoclip.CornerRadius = UDim.new(0, 13)
+UICornerNoclip.Name = "UICornerNoclip"
+UICornerNoclip.Parent = Toggle
+
+local UICornerFakeLag = Instance.new("UICorner")
+UICornerFakeLag.CornerRadius = UDim.new(0, 13)
+UICornerFakeLag.Name = "UICornerFakeLag"
+UICornerFakeLag.Parent = FakeLag
+
+local UICornerTeleportToPlayer2 = Instance.new("UICorner")
+UICornerTeleportToPlayer2.CornerRadius = UDim.new(0, 10)
+UICornerTeleportToPlayer2.Name = "UICornerTeleportToPlayer"
+UICornerTeleportToPlayer2.Parent = TeleportToPlayer2
+
+local UICornerSpinHack2 = Instance.new("UICorner")
+UICornerSpinHack2.CornerRadius = UDim.new(0, 10)
+UICornerSpinHack2.Name = "UICornerSpinHack2"
+UICornerSpinHack2.Parent = SpinHack2
+
+local UICornerGrab2 = Instance.new("UICorner")
+UICornerGrab2.CornerRadius = UDim.new(0, 10)
+UICornerGrab2.Name = "UICornerGrab2"
+UICornerGrab2.Parent = Grab2
+
+local UICornerSpeedHack2 = Instance.new("UICorner")
+UICornerSpeedHack2.CornerRadius = UDim.new(0, 10)
+UICornerSpeedHack2.Name = "UICornerSpeedHack"
+UICornerSpeedHack2.Parent = SpeedHack2
+
+local UICornerJumpPowerHack2 = Instance.new("UICorner")
+UICornerJumpPowerHack2.CornerRadius = UDim.new(0, 10)
+UICornerJumpPowerHack2.Name = "UICornerJumpPowerHack"
+UICornerJumpPowerHack2.Parent = JumpPowerHack2
+
+local UICornerSpectacle2 = Instance.new("UICorner")
+UICornerSpectacle2.CornerRadius = UDim.new(0, 10)
+UICornerSpectacle2.Name = "UICornerSpectacle2"
+UICornerSpectacle2.Parent = Spectacle2
+
+local UICornerStopTime = Instance.new("UICorner")
+UICornerStopTime.CornerRadius = UDim.new(0, 13)
+UICornerStopTime.Name = "UICornerStopTime"
+UICornerStopTime.Parent = StopTime
+
+local UICornerHideMap = Instance.new("UICorner")
+UICornerHideMap.CornerRadius = UDim.new(0, 13)
+UICornerHideMap.Name = "UICornerHideMap"
+UICornerHideMap.Parent = HideMap
+
+local UICornerFireMap = Instance.new("UICorner")
+UICornerFireMap.CornerRadius = UDim.new(0, 13)
+UICornerFireMap.Name = "UICornerFireMap"
+UICornerFireMap.Parent = FireMap
+
+local UICornerTeleportToPlayer3 = Instance.new("UICorner")
+UICornerTeleportToPlayer3.CornerRadius = UDim.new(0, 10)
+UICornerTeleportToPlayer3.Name = "UICornerTeleportToPlayer"
+UICornerTeleportToPlayer3.Parent = TeleportToPlayer3
+
+local UICornerJumpPowerHack3 = Instance.new("UICorner")
+UICornerJumpPowerHack3.CornerRadius = UDim.new(0, 10)
+UICornerJumpPowerHack3.Name = "UICornerJumpPowerHack3"
+UICornerJumpPowerHack3.Parent = JumpPowerHack3
+
+local UICornerSpinHack3 = Instance.new("UICorner")
+UICornerSpinHack3.CornerRadius = UDim.new(0, 10)
+UICornerSpinHack3.Name = "UICornerSpinHack3"
+UICornerSpinHack3.Parent = SpinHack3
+
+local UICornerGrab3 = Instance.new("UICorner")
+UICornerGrab3.CornerRadius = UDim.new(0, 10)
+UICornerGrab3.Name = "UICornerGrab3"
+UICornerGrab3.Parent = Grab3
+
+local UICornerSpectacle3 = Instance.new("UICorner")
+UICornerSpectacle3.CornerRadius = UDim.new(0, 10)
+UICornerSpectacle3.Name = "UICornerSpectacle3"
+UICornerSpectacle3.Parent = Spectacle3
+
+local UICornerSpeedHack3 = Instance.new("UICorner")
+UICornerSpeedHack3.CornerRadius = UDim.new(0, 10)
+UICornerSpeedHack3.Name = "UICornerSpeedHack3"
+UICornerSpeedHack3.Parent = SpeedHack3
+
+local UICornerTeleportToPlayer4 = Instance.new("UICorner")
+UICornerTeleportToPlayer4.CornerRadius = UDim.new(0, 10)
+UICornerTeleportToPlayer4.Name = "UICornerTeleportToPlayer"
+UICornerTeleportToPlayer4.Parent = TeleportToPlayer4
+
+local UICornerGrab4 = Instance.new("UICorner")
+UICornerGrab4.CornerRadius = UDim.new(0, 10)
+UICornerGrab4.Name = "UICornerGrab4"
+UICornerGrab4.Parent = Grab4
+
+local UICornerSpectacle4 = Instance.new("UICorner")
+UICornerSpectacle4.CornerRadius = UDim.new(0, 10)
+UICornerSpectacle4.Name = "UICornerSpectacle4"
+UICornerSpectacle4.Parent = Spectacle4
+
+local UICornerJumpPowerHack4 = Instance.new("UICorner")
+UICornerJumpPowerHack4.CornerRadius = UDim.new(0, 10)
+UICornerJumpPowerHack4.Name = "UICornerJumpPowerHack"
+UICornerJumpPowerHack4.Parent = JumpPowerHack4
+
+local UICornerSpinHack4 = Instance.new("UICorner")
+UICornerSpinHack4.CornerRadius = UDim.new(0, 10)
+UICornerSpinHack4.Name = "UICornerSpinHack4"
+UICornerSpinHack4.Parent = SpinHack4
+
+local UICornerSpeedHack4 = Instance.new("UICorner")
+UICornerSpeedHack4.CornerRadius = UDim.new(0, 10)
+UICornerSpeedHack4.Name = "UICornerSpeedHack"
+UICornerSpeedHack4.Parent = SpeedHack4
+
+Frame.Parent = Padge
+TeleportToPlayer.Parent = Padge
+Reset.Parent = Padge
+xrayButton.Parent = Padge
+Rejoin.Parent = Padge
+SpeedHack.Parent = Padge
+JumpPowerHack.Parent = Padge
+DayAndNight.Parent = Padge
+StopTime.Parent = Padge
+Spectacle.Parent = Padge
+Grab.Parent = Padge
+
+
+function ClickTeleportToPlayer()
+	NameCheat.Text = "Teleport to player"
+	TeleportToPlayer1.Visible = true
+	TeleportToPlayer2.Text = ""
+	TeleportToPlayer2.Visible = true
+	TeleportToPlayer3.Visible = true
+	TeleportToPlayer4.Visible = true
+	Padge.Visible = false
+end
+
+TeleportToPlayer.MouseButton1Down:Connect(ClickTeleportToPlayer)
+
+function ClickTeleportToPlayerBack()
+	onof.Visible = true
+	TeleportToPlayer4.Visible = false
+	TeleportToPlayer3.Visible = false
+	TeleportToPlayer2.Visible = false
+	TeleportToPlayer.Visible = true
+	TeleportToPlayer1.Visible = false
+	NameCheat.Text = "Denker Cheat ".. Version
+	Padge.Visible = true
+
+end
+
+TeleportToPlayer4.MouseButton1Down:Connect(ClickTeleportToPlayerBack)
+
+function ClickTeleportToPlayerTeleport()
+	local Players = game:GetService("Players")
+	local localPlayer = Players.LocalPlayer
+	local button = TeleportToPlayer3
+	local textBox = TeleportToPlayer2
+
+	local targetName = textBox.Text
+	local targetPlayer = Players:FindFirstChild(targetName)
+
+	if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+		local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
+		local character = localPlayer.Character
+
+		if character and character:FindFirstChild("HumanoidRootPart") then
+			character.HumanoidRootPart.CFrame = CFrame.new(targetPosition + Vector3.new(0, 5, 0))
+			textBox.Text = ""
+			textBox.PlaceholderText = "Teleported!"
+			task.wait(1)
+			textBox.PlaceholderText = "Player name"
+		end
+	else
+		if textBox.Text == "" then
+			textBox.Text = ""
+			textBox.PlaceholderText = "Pls enter player name"
+			task.wait(1)
+			textBox.PlaceholderText = "Player name"
+		else
+			textBox.Text = ""
+			textBox.PlaceholderText = "Player not found"
+			task.wait(1)
+			textBox.PlaceholderText = "Player name"
+		end
+	end
+end
+
+TeleportToPlayer3.MouseButton1Down:Connect(ClickTeleportToPlayerTeleport)
+
+local Players    = game:GetService("Players")
+local player     = Players.LocalPlayer
+local workspace  = game:GetService("Workspace")
+
+local xrayButton = xrayButton
+
+local xrayOn   = false
+local original = {}
+
+local function setWorldTransparency(state)
+	for _, obj in ipairs(workspace:GetDescendants()) do
+		if obj:IsA("BasePart") then
+			if state then
+				original[obj] = obj.LocalTransparencyModifier
+				obj.LocalTransparencyModifier = 0.5
+			else
+				obj.LocalTransparencyModifier = original[obj] or 0
+			end
+		elseif obj:IsA("Decal") then
+			if state then
+				original[obj] = obj.Transparency
+				obj.Transparency = 0.5
+			else
+				obj.Transparency = original[obj] or 0
+			end
+		end
+	end
+	if not state then
+		table.clear(original)
+	end
+end
+
+local function setHighlights(state)
+	if state then
+		for _, model in ipairs(workspace:GetDescendants()) do
+			if model:IsA("Model") and model:FindFirstChildWhichIsA("Humanoid") then
+				if model ~= player.Character then
+					if not model:FindFirstChild("XRayHighlight") then
+						local hl = Instance.new("Highlight")
+						hl.Name = "XRayHighlight"
+						hl.FillColor = Color3.new(1, 0, 0)
+						hl.FillTransparency = 0.3
+						hl.OutlineColor = Color3.new(1, 1, 1)
+						hl.OutlineTransparency = 0
+						hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+						hl.Adornee = model
+						hl.Parent = model
+					end
+				end
+			end
+		end
+	else
+		for _, model in ipairs(workspace:GetDescendants()) do
+			if model:IsA("Model") then
+				local hl = model:FindFirstChild("XRayHighlight")
+				if hl then
+					hl:Destroy()
+				end
+			end
+		end
+	end
+end
+
+xrayButton.MouseButton1Click:Connect(function()
+	xrayOn = not xrayOn
+	setWorldTransparency(xrayOn)
+	setHighlights(xrayOn)
+
+	if xrayOn then
+	else
+	end
+end)
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+local killButton = Reset
+
+killButton.MouseButton1Click:Connect(function()
+	humanoid.Health = 0
+end)
+
+function ClickColseButton()
+	BlurEffect:Destroy()
+	DenkerCheatGui:Destroy()
+end
+
+Colse.MouseButton1Down:Connect(ClickColseButton)
+
+local Players        = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+
+local player  = Players.LocalPlayer
+local placeId = game.PlaceId
+local jobId   = game.JobId
+
+local rejoinButton = Rejoin 
+
+rejoinButton.MouseButton1Click:Connect(function()
+	TeleportService:TeleportToPlaceInstance(placeId, jobId, player)
+end)
+
+function ClickSpeedHack()
+	Padge.Visible = false
+	SpeedHack1.Visible = true
+	SpeedHack2.Visible = true
+	SpeedHack3.Visible = true
+	SpeedHack4.Visible = true
+
+	NameCheat.Text = "Speed hack"
+end
+
+SpeedHack.MouseButton1Down:Connect(ClickSpeedHack)
+
+function ClickSpeedHack4()
+	Padge.Visible = true
+	SpeedHack1.Visible = false
+	SpeedHack2.Visible = false
+	SpeedHack3.Visible = false
+	SpeedHack4.Visible = false
+
+	NameCheat.Text = "Denker Cheat ".. Version
+end
+
+SpeedHack4.MouseButton1Down:Connect(ClickSpeedHack4)
+
+local Speed = SpeedHack3
+local RealSpeed = SpeedHack2
+
+Speed.MouseButton1Click:Connect(function()
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+	if humanoid then
+		local speed = tonumber(RealSpeed.Text)
+		if speed then
+			humanoid.WalkSpeed = speed
+			RealSpeed.Text = ""
+			RealSpeed.PlaceholderText = "Speed seted!"
+			task.wait(1)
+			RealSpeed.PlaceholderText = "Speed"
+		else
+			RealSpeed.Text = ""
+			RealSpeed.PlaceholderText = "Its not a number"
+			task.wait(1)
+			RealSpeed.PlaceholderText = "Speed"
+		end
+	end
+end)
+
+function ClickJumpPowerHack()
+	Padge.Visible = false
+	JumpPowerHack1.Visible = true
+	JumpPowerHack2.Visible = true
+	JumpPowerHack3.Visible = true
+	JumpPowerHack4.Visible = true
+	NameCheat.Text = "JumpPower hack"
+end
+
+JumpPowerHack.MouseButton1Down:Connect(ClickJumpPowerHack)
+
+function ClickJumpPowerHack4()
+	JumpPowerHack1.Visible = false
+	JumpPowerHack2.Visible = false
+	JumpPowerHack3.Visible = false
+	JumpPowerHack4.Visible = false
+	Padge.Visible = true
+	NameCheat.Text = "Denker Cheat ".. Version
+end
+
+JumpPowerHack4.MouseButton1Down:Connect(ClickJumpPowerHack4)
+
+local Jump = JumpPowerHack3
+local RealJump = JumpPowerHack2
+
+Jump.MouseButton1Click:Connect(function()
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+
+	if humanoid then
+		local jumpPower = tonumber(RealJump.Text)
+		if jumpPower then
+			humanoid.UseJumpPower = true
+			humanoid.JumpPower = jumpPower
+			RealJump.Text = ""
+			RealJump.PlaceholderText = "JumpPower seted!"
+			task.wait(1)
+			RealJump.PlaceholderText = "JumpPower"
+		else
+			RealJump.Text = ""
+			RealJump.PlaceholderText = "Its not a number"
+			task.wait(1)
+			RealJump.PlaceholderText = "JumpPower"
+		end
+	end
+end)
+
+function Click__()
+	Background.Visible = false
+	CheatIcon.Visible = true
+	BlurEffect.Size = 0
+end
+
+__.MouseButton1Down:Connect(Click__)
+
+local guiElement = CheatIcon
+local UserInputService = game:GetService("UserInputService")
+
+local dragging = false
+local dragStartPos = nil
+local guiStartPos = nil
+local dragThreshold = 5
+
+local function getInputPosition(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or
+		input.UserInputType == Enum.UserInputType.MouseButton1 or
+		input.UserInputType == Enum.UserInputType.Touch then
+		return input.Position
+	end
+	return nil
+end
+
+guiElement.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or
+		input.UserInputType == Enum.UserInputType.Touch then
+		dragStartPos = getInputPosition(input)
+		guiStartPos = guiElement.Position
+		dragging = false
+	end
+end)
+
+guiElement.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or
+		input.UserInputType == Enum.UserInputType.Touch then
+		if dragStartPos and guiStartPos then
+			local currentPos = getInputPosition(input)
+			if currentPos then
+				local delta = currentPos - dragStartPos
+
+				if not dragging and delta.Magnitude > dragThreshold then
+					dragging = true
+				end
+
+				if dragging then
+					guiElement.Position = UDim2.new(
+						guiStartPos.X.Scale,
+						guiStartPos.X.Offset + delta.X,
+						guiStartPos.Y.Scale,
+						guiStartPos.Y.Offset + delta.Y
+					)
+				end
+			end
+		end
+	end
+end)
+
+guiElement.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or
+		input.UserInputType == Enum.UserInputType.Touch then
+		if not dragging then
+			Background.Visible = true
+			BlurEffect.Size = 24
+			CheatIcon.Visible = false
+		end
+		dragStartPos = nil
+		dragging = false
+		guiStartPos = nil
+	end
+end)
+
+local lighting = game:GetService("Lighting")
+
+local isNight = false
+
+DayAndNight.MouseButton1Click:Connect(function()
+	if isNight then
+		lighting.TimeOfDay = "14:00:00"
+		lighting.Brightness = 2
+		lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+		DayAndNight.Text = "Night"
+	else
+		lighting.TimeOfDay = "00:00:00"
+		lighting.Brightness = 1
+		lighting.OutdoorAmbient = Color3.fromRGB(50, 50, 100)
+		DayAndNight.Text = "Day"
+	end
+
+	isNight = not isNight
+end)
+
+function ClickSpectacle()
+	NameCheat.Text = "Spectacle"
+	Spectacle1.Visible = true
+	Spectacle2.Visible = true
+	Spectacle3.Visible = true
+	Spectacle4.Visible = true
+	Padge.Visible = false
+end
+
+Spectacle.MouseButton1Down:Connect(ClickSpectacle)
+
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+local camera = workspace.CurrentCamera
+
+local following = false
+local originalSubject = nil
+local originalType = nil
+
+local function stopFollowing()
+	following = false
+
+	camera.CameraSubject = originalSubject or localPlayer.Character:WaitForChild("Humanoid")
+	camera.CameraType = originalType or Enum.CameraType.Custom
+
+	Spectacle3.Text = "View"
+end
+
+local function startFollowing(targetPlayer)
+	if not targetPlayer.Character or not targetPlayer.Character:FindFirstChildOfClass("Humanoid") then
+		Spectacle2.Text = ""
+		Spectacle2.PlaceholderText = "This player is not have character or humanoid"
+		task.wait(1)
+		Spectacle2.PlaceholderText = "Player name"
+		return
+	end
+
+	originalSubject = camera.CameraSubject
+	originalType = camera.CameraType
+
+	camera.CameraType = Enum.CameraType.Custom
+	camera.CameraSubject = targetPlayer.Character:FindFirstChildOfClass("Humanoid")
+
+	following = true
+	Spectacle3.Text = "Stop"
+end
+
+Spectacle3.Activated:Connect(function()
+	if following then
+		stopFollowing()
+	else
+		local targetName = Spectacle2.Text
+		local targetPlayer = Players:FindFirstChild(targetName)
+
+		if targetPlayer then
+			startFollowing(targetPlayer)
+		else
+			Spectacle2.Text = ""
+			Spectacle2.PlaceholderText = "Player not found"
+			task.wait(1)
+			Spectacle2.PlaceholderText = "Player name"
+		end
+	end
+end)
+
+localPlayer.CharacterRemoving:Connect(stopFollowing)
+
+function ClickSpectacle4()
+	NameCheat.Text = "Denker Cheat "..Version
+	Padge.Visible = true
+	Spectacle1.Visible = false
+	Spectacle2.Visible = false
+	Spectacle3.Visible = false
+	Spectacle4.Visible = false
+end
+
+Spectacle4.MouseButton1Down:Connect(ClickSpectacle4)
+
+function ClickGrab()
+	NameCheat.Text = "Grab"
+	Padge.Visible = false
+	TeleportToPlayer1.Visible = true
+	Grab2.Visible = true
+	Grab3.Visible = true
+	Grab4.Visible = true
+end
+
+Grab.MouseButton1Down:Connect(ClickGrab)
+
+function ClickGrab4()
+	Padge.Visible = true
+	TeleportToPlayer1.Visible = false
+	Grab2.Visible = false
+	Grab3.Visible = false
+	Grab4.Visible = false
+	NameCheat.Text = "Denker Cheat "..Version
+end
+
+Grab4.MouseButton1Down:Connect(ClickGrab4)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+
+local looping = false
+local connection
+
+local function stopTeleport()
+	if connection then
+		connection:Disconnect()
+		connection = nil
+	end
+	looping = false
+	Grab3.Text = "Teleport"
+end
+
+local function startTeleport(targetName)
+	local targetPlayer = Players:FindFirstChild(targetName)
+	if not targetPlayer then
+		Grab2.Text = ""
+		Grab2.PlaceholderText = "Player not found"
+		task.wait(1)
+		Grab2.PlaceholderText = "Player name"
+		return
+	end
+
+	looping = true
+	Grab3.Text = "Stop teleporting"
+
+	connection = RunService.RenderStepped:Connect(function()
+		local myChar = player.Character
+		local targetChar = targetPlayer.Character
+		if not (myChar and targetChar) then return end
+
+		local myHRP = myChar:FindFirstChild("HumanoidRootPart")
+		local targetHRP = targetChar:FindFirstChild("HumanoidRootPart")
+		if myHRP and targetHRP then
+			myHRP.CFrame = targetHRP.CFrame + Vector3.new(0, 3, 0)
+		end
+	end)
+end
+
+Grab3.MouseButton1Click:Connect(function()
+	if looping then
+		stopTeleport()
+	else
+		startTeleport(Grab2.Text)
+	end
+end) 
+
+function ClcikSpinHack()
+	SpinHack2.Text = ""
+	Padge.Visible = false
+	SpinHack1.Visible = true
+	SpinHack2.Visible = true
+	SpinHack3.Visible = true
+	SpinHack4.Visible = true
+	NameCheat.Text = "Spin hack"
+end
+
+SpinHack.MouseButton1Down:Connect(ClcikSpinHack)
+
+function ClickSpinHack4()
+	Padge.Visible = true
+	SpinHack1.Visible = false
+	SpinHack2.Visible = false
+	SpinHack3.Visible = false
+	SpinHack4.Visible = false
+	NameCheat.Text = "Denker Cheat "..Version
+end
+
+SpinHack4.MouseButton1Down:Connect(ClickSpinHack4)
+
+local runSvc     = game:GetService("RunService")
+local player     = game.Players.LocalPlayer
+
+local rotating       = false
+local rotationConn   = nil
+
+local function startRotation(speed)
+	rotationConn = runSvc.RenderStepped:Connect(function(dt)
+		local char = player.Character
+		if not char then return end
+
+		local hrp = char:FindFirstChild("HumanoidRootPart")
+		if not hrp then return end
+
+		hrp.CFrame = hrp.CFrame * CFrame.Angles(0, math.rad(speed) * dt, 0)
+	end)
+end
+
+local function stopRotation()
+	if rotationConn then
+		rotationConn:Disconnect()
+		rotationConn = nil
+	end
+end
+
+local function toggle()
+	rotating = not rotating
+
+	if rotating then
+		local speed = tonumber(SpinHack2.Text) or 0
+		if speed == 0 then
+			SpinHack2.Text = ""
+			SpinHack2.PlaceholderText = "Spin failed"
+			task.wait(1)
+			SpinHack2.PlaceholderText = "Spin"
+			rotating = false
+			return
+		end
+		startRotation(speed)
+		SpinHack3.Text = "Stop spining"
+	else
+		stopRotation()
+		SpinHack3.Text = "Spin"
+	end
+end
+
+SpinHack3.MouseButton1Click:Connect(toggle)
+
+local Noclip = false
+
+local Name = game.Players.LocalPlayer.Name
+
+local function NoclipFunc()
+	Noclip = not Noclip
+
+	if Noclip then
+
+		game:GetService('RunService').Stepped:Connect(function()
+			if Noclip then
+				for _, b in pairs(game.Workspace:GetChildren()) do
+					if b.Name == Name then
+						for _, v in pairs(game.Workspace[Name]:GetChildren()) do
+							if v:IsA("BasePart") then
+								v.CanCollide = false
+							end
+						end
+					end
+				end
+			end
+		end)
+	else
+
+		for _, b in pairs(game.Workspace:GetChildren()) do
+			if b.Name == Name then
+				for _, v in pairs(game.Workspace[Name]:GetChildren()) do
+					if v:IsA("BasePart") then
+						v.CanCollide = true
+					end
+				end
+			end
+		end
+	end
+end
+
+Toggle.MouseButton1Click:Connect(NoclipFunc)
+
+local player  = game.Players.LocalPlayer
+
+local blinking  = false
+local loopTask  = nil
+
+local function anchorBlinkLoop()
+	while blinking do
+		local char = player.Character
+		if char then
+			local hrp = char:FindFirstChild("HumanoidRootPart")
+			if hrp then hrp.Anchored = true end
+		end
+		task.wait(0.1)
+
+		if not blinking then break end
+
+		char = player.Character
+		if char then
+			local hrp = char:FindFirstChild("HumanoidRootPart")
+			if hrp then hrp.Anchored = false end
+		end
+		task.wait(0.1)
+	end
+end
+
+local function toggle()
+	blinking = not blinking
+
+	if blinking then
+		if not loopTask or coroutine.status(loopTask) ~= "running" then
+			loopTask = task.spawn(anchorBlinkLoop)
+		end
+	else
+		local char = player.Character
+		if char then
+			local hrp = char:FindFirstChild("HumanoidRootPart")
+			if hrp then hrp.Anchored = false end
+		end
+	end
+end
+
+FakeLag.MouseButton1Click:Connect(toggle)
+
+local player = game.Players.LocalPlayer
+local camera = workspace.CurrentCamera
+local RunService = game:GetService("RunService")
+
+local shiftLockEnabled = false
+local renderConn
+
+local function getHumanoidParts()
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild("Humanoid")
+	local hrp = character:WaitForChild("HumanoidRootPart")
+	return humanoid, hrp
+end
+
+local function rotateToCamera(hrp)
+	local camLook = camera.CFrame.LookVector
+	local flatLook = Vector3.new(camLook.X, 0, camLook.Z).Unit
+	if flatLook.Magnitude > 0.01 then
+		hrp.CFrame = CFrame.new(hrp.Position, hrp.Position + flatLook)
+	end
+end
+
+local function enableShiftLock()
+	shiftLockEnabled = true
+
+	local humanoid, hrp = getHumanoidParts()
+	humanoid.AutoRotate = false
+	humanoid.CameraOffset = Vector3.new(1.75, 0.5, 0)
+
+	renderConn = RunService.RenderStepped:Connect(function()
+		if shiftLockEnabled then
+			rotateToCamera(hrp)
+		end
+	end)
+end
+
+local function disableShiftLock()
+	shiftLockEnabled = false
+	if renderConn then renderConn:Disconnect() end
+
+	local humanoid, _ = getHumanoidParts()
+	humanoid.AutoRotate = true
+	humanoid.CameraOffset = Vector3.zero
+end
+
+ShiftLock.MouseButton1Click:Connect(function()
+	if shiftLockEnabled then
+		disableShiftLock()
+	else
+		enableShiftLock()
+	end
+end)
+
+player.CharacterAdded:Connect(function()
+	if shiftLockEnabled then
+		disableShiftLock()
+		task.wait(0.1)
+		enableShiftLock()
+	end
+end)
+
+local CollectionService = game:GetService("CollectionService")
+local Players = game:GetService("Players")
+
+local transparencyOn = false
+local originalTransparency = {}
+
+local function setTransparency(transparency)
+	for _, obj in pairs(workspace:GetDescendants()) do
+		local isPlayerChar = false
+		for _, player in pairs(Players:GetPlayers()) do
+			if player.Character and obj:IsDescendantOf(player.Character) then
+				isPlayerChar = true
+				break
+			end
+		end
+
+		local isNPC = CollectionService:HasTag(obj, "NPC")
+
+		if not isPlayerChar and not isNPC and obj:IsA("BasePart") then
+			if transparency == nil then
+				if originalTransparency[obj] then
+					obj.Transparency = originalTransparency[obj]
+				end
+			else
+				if originalTransparency[obj] == nil then
+					originalTransparency[obj] = obj.Transparency
+				end
+				obj.Transparency = transparency
+			end
+		end
+	end
+end
+
+HideMap.MouseButton1Click:Connect(function()
+	if not transparencyOn then
+		setTransparency(1)
+		transparencyOn = true
+	else
+		setTransparency(nil)
+		transparencyOn = false
+	end
+end)
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+GiveAllTools.MouseButton1Click:Connect(function()
+	local foundTools = {}
+
+	local function findToolsInParent(parent)
+		for _, obj in pairs(parent:GetChildren()) do
+			if obj:IsA("Tool") then
+				table.insert(foundTools, obj)
+			end
+			findToolsInParent(obj)
+		end
+	end
+
+	findToolsInParent(game)
+
+	if #foundTools == 0 then
+		return
+	end
+
+	for _, tool in pairs(foundTools) do
+		local cloneTool = tool:Clone()
+		cloneTool.Parent = player.Backpack
+	end
+end)
+
+local toggle = false
+
+local CollectionService = game:GetService("CollectionService")
+local Players           = game:GetService("Players")
+
+local fireOn   = false
+local fires    = {}
+
+local function isPlayerDescendant(obj)
+	for _, plr in ipairs(Players:GetPlayers()) do
+		if plr.Character and obj:IsDescendantOf(plr.Character) then
+			return true
+		end
+	end
+	return false
+end
+
+local function isNPC(obj)
+	return CollectionService:HasTag(obj, "NPC")
+end
+
+local function addFireToWorkspace()
+	for _, part in ipairs(workspace:GetDescendants()) do
+		if part:IsA("BasePart") and not isPlayerDescendant(part) and not isNPC(part) then
+			if not part:FindFirstChildOfClass("Fire") then
+				local fire = Instance.new("Fire")
+				fire.Size  = 8
+				fire.Heat  = 10
+				fire.Parent = part
+				table.insert(fires, fire)
+			end
+		end
+	end
+end
+
+local function removeAllCreatedFire()
+	for _, fire in ipairs(fires) do
+		if fire and fire.Parent then
+			fire:Destroy()
+		end
+	end
+	fires = {}
+end
+
+FireMap.MouseButton1Click:Connect(function()
+	if not fireOn then
+		addFireToWorkspace()
+		fireOn = true
+	else
+		removeAllCreatedFire()
+		fireOn = false
+	end
+end)
+
+setting = settings().Network
+local Effect = Instance.new("ColorCorrectionEffect")
+Effect.Parent = game.Lighting
+Effect.Saturation = -1
+Effect.Brightness = 0
+Effect.Contrast = 0
+toggle = false
+
+Effect.Enabled = false
+function onKeyPress(inputObject, gameProcessedEvent)
+	if inputObject.KeyCode == Enum.KeyCode.E then	
+		if toggle == false then
+			setting.IncomingReplicationLag = 1000
+			Effect.Enabled = true
+			toggle = true
+		else
+			setting.IncomingReplicationLag = 0
+			Effect.Enabled = false
+			toggle = false
+		end
+
+	end
+end
+
+game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+
+run = false
+StopTime.MouseButton1Click:connect(function()
+	run = not run
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(true, "E", false, game)
+	wait()
+	local vim = game:service("VirtualInputManager")
+	vim:SendKeyEvent(false, "E", false, game)
+end)
