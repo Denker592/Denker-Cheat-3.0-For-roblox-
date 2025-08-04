@@ -781,19 +781,19 @@ Toggle.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 Toggle.TextStrokeTransparency = 0
 Toggle.Visible = false
 
-local Invisible = Instance.new("TextButton")
-Invisible.Name = "Invisible"
-Invisible.Parent = Padge
-Invisible.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
-Invisible.Position = UDim2.new(0.523, 0, 0.409, 0)
-Invisible.Size = UDim2.new(0, 95, 0, 45)
-Invisible.Font = Enum.Font.FredokaOne
-Invisible.Text = "Invisible"
-Invisible.TextColor3 = Color3.fromRGB(255, 255, 255)
-Invisible.TextScaled = true
-Invisible.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
-Invisible.TextStrokeTransparency = 0
-Invisible.Visible = false
+local TextButton = Instance.new("TextButton")
+TextButton.Name = "Invisible"
+TextButton.Parent = Padge
+TextButton.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+TextButton.Position = UDim2.new(0.523, 0, 0.409, 0)
+TextButton.Size = UDim2.new(0, 95, 0, 45)
+TextButton.Font = Enum.Font.FredokaOne
+TextButton.Text = "Invisible"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextStrokeTransparency = 0
+TextButton.Visible = false
 
 local TeleportToPlayer1 = Instance.new("TextLabel")
 TeleportToPlayer1.Position = UDim2.new(0.218, 0, 0.249, 0)
@@ -2291,8 +2291,6 @@ FireMap.MouseButton1Click:Connect(function()
 	end
 end)
 
--- Scripts:
-
 local function GNXDSUT_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
@@ -2348,6 +2346,14 @@ local function GNXDSUT_fake_script() -- TextButton.LocalScript
 	game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
 		makeTransparent(character)
 	end)
+
+	wait(.69)
+
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "loaded";
+		Text = "eeeeee";
+		Duration = 6;
+	})
 end
 coroutine.wrap(GNXDSUT_fake_script)()
 
@@ -2386,4 +2392,3 @@ StopTime.MouseButton1Click:connect(function()
 	local vim = game:service("VirtualInputManager")
 	vim:SendKeyEvent(false, "E", false, game)
 end)
-
