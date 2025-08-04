@@ -2292,7 +2292,6 @@ FireMap.MouseButton1Click:Connect(function()
 end)
 
 local function GNXDSUT_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
 
 	local TextButton = script.Parent
 	local invis_on = false
